@@ -1,0 +1,33 @@
+expose:
+  type: nodePort
+  tls:
+    enabled: false
+  nodePort:
+    ports:
+      http:
+        port: 30002
+      https:
+        port: 30003
+      notary:
+        port: 30004
+
+externalURL: "__HARBOR_EXTERNAL_URL__"
+
+harborAdminPassword: "__HARBOR_ADMIN_PASSWORD__"
+
+persistence:
+  enabled: true
+  resourcePolicy: "keep"
+  persistentVolumeClaim:
+    registry:
+      size: 20Gi
+    chartmuseum:
+      size: 5Gi
+    jobservice:
+      size: 1Gi
+    database:
+      size: 10Gi
+    redis:
+      size: 2Gi
+    trivy:
+      size: 5Gi
