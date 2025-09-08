@@ -1,1 +1,1 @@
-["traefik:latest", "nginx:1.27", "bitnami/postgresql:16"]
+["traefik:v3.5.1", "nginx:1.27", "bitnami/postgresql:16"]
