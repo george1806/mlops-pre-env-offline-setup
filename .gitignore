@@ -5,3 +5,4 @@ apps/*/values/*.rendered.yaml
 apps/*/logs/*
 apps/*/offline-images/*
 apps/*/*.txt
+.tempz.md

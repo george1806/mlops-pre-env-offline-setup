@@ -17,7 +17,7 @@ check_prereqs() {
 }
 
 install_k3s() {
-  echo "🔹 Installing K3s $K3S_VERSION..."
+  echo "🔹 Installing K3s $K3S_VERSION..."AIRFLOW__KEYCLOAK_AUTH_MANAGER__SERVER_URL
   curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION="$K3S_VERSION" sh -s - server --disable traefik --disable servicelb
 }
 
@@ -27,6 +27,10 @@ configure_k3s() {
   cat <<EOF | sudo tee "$CONFIG_DIR/config.yaml"
 node-ip: $NODE_IP
 write-kubeconfig-mode: "644"
+
+# Disable built-in components we want to manage ourselves
+disable:
+  - traefik
 
 # Disable built-in components we want to manage ourselves
 disable:
